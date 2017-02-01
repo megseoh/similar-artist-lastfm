@@ -11,7 +11,7 @@ export default class ArtistContainer extends Component {
 		}
 	}
 
-	SIMILAR_ARTIST_URL = 'http://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&api_key=322a57c22e2af082f475e780809593d4&format=json&limit=5&artist=cher';
+	SIMILAR_ARTIST_URL = 'http://ws.audioscrobbler.com/2.0/?method=artist.getSimilar&limit=5&api_key=322a57c22e2af082f475e780809593d4&format=json&artist=cher';
 
 	componentDidMount() {
 		$.get(this.SIMILAR_ARTIST_URL).then(res => {
@@ -28,9 +28,9 @@ export default class ArtistContainer extends Component {
 			<div className="container">
 				<div className="row">
 					<h2>Artist List</h2>
-					{this.state.artistList.map(artist =>
+					{this.state.artistList.map((artist, index) =>
 						<Artist
-							key={artist.name}
+							key={index}
 							name={artist.name}
 							image={artist.image}
 						/>)}

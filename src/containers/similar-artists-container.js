@@ -27,14 +27,10 @@ export default class ArtistContainer extends Component {
 
 	componentDidMount() {
 		let encodedArtist = encodeURIComponent(this.state.currentArtist);
-		// console.log(encodedArtist);
 		let requestURL = `${this.SIMILAR_ARTIST_URL}&artist=${encodedArtist}`;
-		// console.log(requestURL);
 
 		$.get(requestURL).then(res => {
-			// console.log(this.state.currentArtist);
 			var similarArtistArray = res.similarartists.artist;
-			// console.log(similarArtistArray);
 			this.setState({
 				artistList: similarArtistArray,
 			});
@@ -42,7 +38,6 @@ export default class ArtistContainer extends Component {
 	}
 
 	handleSearch(newArtist) {
-		console.log(newArtist + ' inside handleSearch');
 		SimilarArtistsURL.getArtists(newArtist).then(similarArtistArray => {
 			this.setState({
 				currentArtist: newArtist,

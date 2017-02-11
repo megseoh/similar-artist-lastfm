@@ -5,8 +5,6 @@ export default class ArtistForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 
-		console.log(this.refs.currentArtist.value);
-
 		let newArtist = this.refs.currentArtist.value;
 
 		if (newArtist.length > 0) {
